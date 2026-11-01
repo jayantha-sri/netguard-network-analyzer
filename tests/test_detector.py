@@ -14,7 +14,7 @@ def test_detects_watched_port():
             "dst_port": 22,
             "protocol": "TCP",
             "packets": 10
-        }
+        } 
     ])
 
     traffic, alerts = analyze_traffic(df)
