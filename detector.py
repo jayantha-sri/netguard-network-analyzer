@@ -29,7 +29,6 @@ def analyze_traffic(df):
 
     alerts = []
 
-    # Detect repeated records from one IP
     counts = df["src_ip"].value_counts()
 
     for ip, count in counts.items():
@@ -40,7 +39,7 @@ def analyze_traffic(df):
                 "rule": "High connection-record count"
             })
 
-    # Detect watched ports
+
     watched_ports = [22, 23, 445, 3389]
 
     for _, row in df.iterrows():
