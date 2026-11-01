@@ -5,14 +5,13 @@ import plotly.express as px
 
 from detector import analyze_traffic
 
-# Page configuration
 st.set_page_config(
     page_title="NetGuard",
     page_icon="🛡️",
     layout="wide"
 )
 
-# Dashboard heading
+
 st.title("🛡️ NetGuard")
 st.subheader("Network Traffic Analyzer & Cybersecurity Dashboard")
 
@@ -26,7 +25,6 @@ st.info(
     "not confirmed cyberattacks."
 )
 
-# Upload CSV file
 uploaded_file = st.file_uploader(
     "Upload Network Traffic CSV",
     type=["csv"]
@@ -43,7 +41,6 @@ if uploaded_file is not None:
             st.warning("No valid traffic records found.")
             st.stop()
 
-        # Dashboard metrics
         st.markdown("## Network Overview")
 
         col1, col2, col3 = st.columns(3)
@@ -63,7 +60,7 @@ if uploaded_file is not None:
             len(alerts)
         )
 
-        # Protocol distribution
+      
         st.markdown("## Protocol Distribution")
 
         protocol_counts = (
@@ -87,7 +84,7 @@ if uploaded_file is not None:
             use_container_width=True
         )
 
-        # Top source IP addresses
+   
         st.markdown("## Top Source IP Addresses")
 
         top_ips = (
@@ -110,7 +107,7 @@ if uploaded_file is not None:
             use_container_width=True
         )
 
-        # Security alerts
+      
         st.markdown("## Security Alerts")
 
         if alerts.empty:
@@ -132,7 +129,6 @@ if uploaded_file is not None:
                 "text/csv"
             )
 
-        # Traffic table
         st.markdown("## Traffic Records")
 
         st.dataframe(
